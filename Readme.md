@@ -1,71 +1,440 @@
-﻿# Student Placement Prediction System
+# 🎓 Student Placement Predictor
+### AI-Powered Student Placement Prediction & Explainability Platform
 
-This project is a small ML and Streamlit application for predicting student placement outcomes from academic, technical, and soft-skill inputs.
+<p align="center">
+  An interactive machine learning application that predicts student placement outcomes using academic performance, technical skills, internships, aptitude, and other employability indicators.
+</p>
 
-## Important limitation
-The repository contains a synthetic or rule-generated dataset rather than a verified real-world placement dataset. The notebook and audit notes show strong feature separation and near-perfect model metrics, which is a sign of deterministic label generation rather than real-world placement behavior. This project should therefore be treated as a reproducible ML pipeline example and educational demo rather than a production placement model.
+<p align="center">
+  <a href="https://sies-placement-prediction-system.streamlit.app/">
+    <img src="https://img.shields.io/badge/🚀_Live_Demo-Open_Application-6C63FF?style=for-the-badge" alt="Live Demo">
+  </a>
+  <a href="https://github.com/kaveesh-kadirvel/Student-Placement-Prediction-System">
+    <img src="https://img.shields.io/badge/GitHub-Source_Code-181717?style=for-the-badge&logo=github" alt="GitHub Repository">
+  </a>
+</p>
 
-## Project goals
-- Predict whether a student is placed or not placed using campus-relevant attributes
-- Compare five classifiers: Logistic Regression, Decision Tree, Random Forest, SVM, and XGBoost
-- Evaluate models with accuracy, precision, recall, F1-score, confusion matrices, and ROC-AUC
-- Provide SHAP-based explanations where supported
-- Deliver a simplified Streamlit interface for prediction and analytics
+<p align="center">
+  <img src="https://img.shields.io/badge/Python-3.13-3776AB?style=flat-square&logo=python&logoColor=white" alt="Python">
+  <img src="https://img.shields.io/badge/Streamlit-Web_App-FF4B4B?style=flat-square&logo=streamlit&logoColor=white" alt="Streamlit">
+  <img src="https://img.shields.io/badge/Scikit--learn-Machine_Learning-F7931E?style=flat-square&logo=scikitlearn&logoColor=white" alt="Scikit-learn">
+  <img src="https://img.shields.io/badge/XGBoost-Classification-189B5A?style=flat-square" alt="XGBoost">
+  <img src="https://img.shields.io/badge/SHAP-Explainable_AI-8A63D2?style=flat-square" alt="SHAP">
+</p>
 
-## Repository structure
-- `app.py` — Streamlit dashboard
-- `train.csv` and `test.csv` — dataset split used for model development and final evaluation
-- `placement_model.pkl` — saved trained pipeline artifact
-- `placed_avg_stats.pkl` — benchmark statistics for placed students
-- `scripts/train_models.py` — trains the benchmark models and saves metrics/artifacts
-- `scripts/audit_dataset.py` — generates the dataset audit report
-- `src/` — modular ML pipeline code
-- `reports/` — evaluation and audit outputs
-- `tests/` — validation and integration tests
+---
 
-`project.ipynb` is an exploratory legacy notebook. It now uses only `train.csv` for its internal train/validation split and saves separate `*_notebook_demo.pkl` files. Use `scripts/train_models.py` for the canonical workflow and application artifacts.
+## 📌 Overview
 
-## Setup
+**Student Placement Predictor** is a machine learning-based web application developed to analyze student profiles and predict placement outcomes.
+
+The system considers attributes such as CGPA, internships, projects, coding skills, communication skills, aptitude scores, certifications, and academic backlogs to generate a placement prediction.
+
+Beyond prediction, the application provides model comparison, evaluation visualizations, and SHAP-based explanations to help users understand how machine learning models use student attributes.
+
+Built using Python and Streamlit, the project demonstrates an end-to-end machine learning workflow through an interactive web interface.
+
+### 🎯 Project Objectives
+
+- Develop a supervised machine learning system for placement outcome classification.
+- Compare multiple classification algorithms.
+- Evaluate models using standard classification metrics.
+- Provide an interactive interface for entering student information.
+- Explore feature contributions using explainable AI.
+- Deploy the application online for accessible demonstration.
+
+## 🌐 Live Demo
+
+**Try the application:**  
+https://sies-placement-prediction-system.streamlit.app/
+
+**GitHub repository:**  
+https://github.com/kaveesh-kadirvel/Student-Placement-Prediction-System
+
+The application includes:
+
+- Interactive student assessment.
+- Placement outcome predictions.
+- Model comparison and evaluation.
+- Confusion matrix visualizations.
+- Global feature importance and individual SHAP explanations.
+- Project information and responsible-use notes.
+
+---
+
+## ✨ Features
+
+### 🎯 1. Student Placement Prediction
+
+- Interactive student profile assessment form.
+- Academic, technical, internship, aptitude, and soft-skill inputs.
+- Binary classification into `Placed` or `Not Placed`.
+- Model-estimated probability display.
+- Individual prediction explanations.
+
+### 🤖 2. Machine Learning Models
+
+The project includes five classification algorithms:
+
+| Algorithm | Description |
+|---|---|
+| Logistic Regression | Linear classification baseline |
+| Decision Tree | Rule-based classification |
+| Random Forest | Ensemble of decision trees |
+| Support Vector Machine (SVM) | Margin-based classification |
+| XGBoost | Gradient-boosted decision trees |
+
+### 📊 3. Model Evaluation
+
+The application provides visualizations for comparing classification performance using:
+
+- Accuracy
+- Precision
+- Recall
+- F1-score
+- ROC-AUC, where applicable
+- Confusion matrices
+
+These metrics help assess the performance of the evaluated models. Their interpretation depends on the evaluation methodology and dataset quality.
+
+### 🔍 4. Explainable AI with SHAP
+
+The application incorporates SHAP-based explanations to explore model behavior.
+
+**Global explanations**
+- Examine which features contribute most across the evaluated data.
+- Compare the relative importance of student attributes.
+
+**Individual explanations**
+- Inspect feature contributions for a submitted student profile.
+- Understand how the model's output relates to the input features.
+
+SHAP explains model behavior and does not establish that a feature causes a placement outcome.
+
+### 🎨 5. Interactive Dashboard
+
+- Modern dark-mode interface.
+- Consistent visual styling.
+- Organized navigation.
+- Student assessment workflow.
+- Model comparison charts.
+- Explainability visualizations.
+- Responsible-use information.
+
+### ☁️ 6. Cloud Deployment
+
+The application is hosted on Streamlit Community Cloud, allowing users to access it through a browser without installing the project locally.
+
+---
+
+## 🧠 Machine Learning Workflow
+
+```text
+             Student Dataset
+                    │
+                    ▼
+          Data Inspection & Audit
+                    │
+                    ▼
+       Preprocessing & Feature Selection
+                    │
+                    ▼
+          Train Classification Models
+                    │
+                    ▼
+           Evaluate Model Performance
+                    │
+                    ▼
+          Load Selected Trained Model
+                    │
+                    ▼
+           Student Profile Assessment
+                    │
+                    ▼
+          Placement Outcome Prediction
+                    │
+                    ▼
+          SHAP-Based Model Explanation
+```
+
+The workflow covers the main stages of a supervised machine learning project, from dataset preparation and model evaluation to prediction and interpretation.
+
+---
+
+## 📂 Dataset
+
+The project references the **Student Placement Dataset (50,000 Records)**, associated with the report *Data Analysis Documentation: Placement Prediction For IT Students*.
+
+### Dataset Source
+
+| Property | Details |
+|---|---|
+| Dataset name | Student Placement Dataset (50,000 Records) |
+| Reference report | Data Analysis Documentation: Placement Prediction For IT Students |
+| Report authors | Aditya Kuril and Neel Kanani |
+| Source reference | [Read the matching dataset analysis on Scribd](https://www.scribd.com/document/1038022652/nk-doc) |
+| Data format | CSV |
+| Total records | 50,000 |
+| Target variable | `Placement_Status` |
+
+**Source note:** The linked report is the closest matching source identified for this project. The exact origin of the CSV files in this repository has not been independently confirmed against the original download.
+
+### Dataset Files
+
+| File | Description | Records |
+|---|---|---:|
+| `train.csv` | Training dataset | 45,000 |
+| `test.csv` | Testing dataset | 5,000 |
+| `dataset.xlsx` | Additional spreadsheet included in the repository | — |
+
+### Dataset Features
+
+The dataset contains 15 columns representing student attributes and the target placement outcome.
+
+| Feature | Description |
+|---|---|
+| `Student_ID` | Student identifier |
+| `Age` | Student age |
+| `Gender` | Gender category |
+| `Degree` | Degree category |
+| `Branch` | Academic branch |
+| `CGPA` | Academic performance indicator |
+| `Internships` | Number of internships |
+| `Projects` | Number of projects |
+| `Coding_Skills` | Coding skills indicator |
+| `Communication_Skills` | Communication skills indicator |
+| `Aptitude_Test_Score` | Aptitude assessment score |
+| `Soft_Skills_Rating` | Soft skills rating |
+| `Certifications` | Number of certifications |
+| `Backlogs` | Number of academic backlogs |
+| `Placement_Status` | Placement classification label |
+
+### Target Variable
+
+The model predicts `Placement_Status`, with two classes:
+
+- `Placed`
+- `Not Placed`
+
+The `Student_ID` column is an identifier and should be excluded from predictive model features.
+
+### Dataset Limitations
+
+The dataset may contain synthetic or rule-generated records. Its exact provenance has not been independently established.
+
+Consequently, high evaluation scores should not automatically be interpreted as evidence of real-world placement prediction performance. Further validation on independently sourced data would be needed before applying the model to real student populations.
+
+---
+
+## 🛠️ Technology Stack
+
+| Technology | Purpose |
+|---|---|
+| Python | Core programming language |
+| Streamlit | Interactive web application |
+| Pandas | Data manipulation and analysis |
+| NumPy | Numerical operations |
+| Scikit-learn | Machine learning and evaluation |
+| XGBoost | Gradient-boosted classification |
+| SHAP | Explainable AI |
+| Matplotlib | Data visualization |
+| Seaborn | Statistical visualization |
+| Joblib / Pickle | Serialized model artifact handling |
+| Pytest | Automated testing |
+| Git & GitHub | Version control |
+| Streamlit Community Cloud | Cloud deployment |
+
+---
+
+## 📁 Project Structure
+
+```text
+Student-Placement-Prediction-System/
+│
+├── app.py
+├── requirements.txt
+├── README.md
+├── .gitignore
+│
+├── .streamlit/
+│   └── config.toml
+│
+├── src/
+│   ├── schema.py
+│   ├── predict.py
+│   ├── explainability.py
+│   └── ...
+│
+├── reports/
+│   ├── dataset_audit.md
+│   └── model_metrics.json
+│
+├── tests/
+│   └── ...
+│
+├── train.csv
+├── test.csv
+├── dataset.xlsx
+├── placement_model.pkl
+└── project.ipynb
+```
+
+*Note: This tree illustrates the main project components. Refer to the repository for the exact current file structure.*
+
+---
+
+## ⚙️ Run the Project Locally
+
+Follow the instructions below to run the application on your computer.
+
+### Prerequisites
+
+- Python 3.13, matching the locally tested environment.
+- Git.
+- pip.
+
+### 1. Clone the Repository
+
 ```bash
-py -m venv .venv
-.\.venv\Scripts\Activate.ps1
+git clone https://github.com/kaveesh-kadirvel/Student-Placement-Prediction-System.git
+```
+
+### 2. Navigate to the Project Directory
+
+```bash
+cd Student-Placement-Prediction-System
+```
+
+### 3. Create a Virtual Environment
+
+**Windows**
+
+```bash
+python -m venv .venv
+.venv\Scripts\activate
+```
+
+**macOS / Linux**
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+```
+
+### 4. Install Dependencies
+
+```bash
 python -m pip install --upgrade pip
-python -m pip install -r requirements.txt
+pip install -r requirements.txt
 ```
 
-## Train the project
-```bash
-python scripts/train_models.py
-```
+### 5. Start the Streamlit Application
 
-## Run the app
 ```bash
 python -m streamlit run app.py
 ```
 
-## Deploy on Streamlit Community Cloud
+Open the local address shown in the terminal, usually:
 
-The app entry point is `app.py` at the repository root. Community Cloud needs the files below to run the deployed app:
+```text
+http://localhost:8501
+```
 
-- `app.py`, `src/`, and `requirements.txt`
-- `.streamlit/config.toml`
-- `placement_model.pkl` (the saved fitted model pipeline)
-- `train.csv` (dashboard summaries, form ranges, and SHAP background data)
-- `reports/model_metrics.json` (verified evaluation report displayed in the app)
+### 6. Run Automated Tests
 
-`test.csv` is retained for reproducibility and the training/evaluation workflow, but the deployed app reads its displayed test metrics from the saved report. `dataset.xlsx`, the legacy notebook, and `placed_avg_stats.pkl` are not needed by the app at runtime. The trained model file is explicitly allowed by `.gitignore` because it must be included in the GitHub repository for deployment.
+```bash
+python -m pytest -q
+```
 
-1. Upload this project folder to a GitHub repository you own. This workspace is not currently connected to a Git repository, so no repository, branch, or remote URL can be selected on your behalf. Include the runtime files listed above; do not upload `.env` files, credentials, local virtual environments, caches, or backup folders.
-2. Open [share.streamlit.io](https://share.streamlit.io/) and sign in with GitHub. Click **Create app**, then **Yup, I have an app**.
-3. Select your GitHub repository, the branch containing the project files (commonly `main`), and `app.py` as the main file path.
-4. Open **Advanced settings** and select **Python 3.13**, matching the Python version used for local verification. Leave **Secrets** empty; this project does not require API keys or credentials.
-5. Click **Deploy**. Wait for the app to finish building, then open the generated `*.streamlit.app` URL.
-6. Verify the Overview screen, submit a student assessment, and open Model comparison and Explainability. The first SHAP view may take a short time to calculate. Treat all metrics as development results because dataset provenance is unverified.
+The tests verify selected aspects of the project. Results may vary depending on the current repository version and environment.
 
-If GitHub does not yet contain this project, create a new empty repository in GitHub, then use GitHub Desktop or the GitHub website's upload flow to add the project files. Do not include unrelated backup folders. This workspace has no Git metadata or configured remote, so no changes have been committed or pushed.
+---
 
-## Notes
-- The project keeps the original train and test CSV files intact.
-- Each training run evaluates the test set only after model selection; rerunning the script recomputes test metrics, so do not use repeated results for tuning or selection.
-- All preprocessing is fit on training data only.
-- Model performance is reported only after actual execution and review.
+## 📈 Model Evaluation Metrics
+
+The project uses standard classification metrics to evaluate model performance.
+
+| Metric | Description |
+|---|---|
+| Accuracy | Proportion of all predictions that are correct |
+| Precision | Proportion of predicted positive cases that are correct |
+| Recall | Proportion of actual positive cases identified |
+| F1-score | Harmonic mean of precision and recall |
+| ROC-AUC | Ability to rank positive cases above negative cases |
+
+### Confusion Matrix
+
+A confusion matrix summarizes the number of:
+
+- True positives
+- True negatives
+- False positives
+- False negatives
+
+These values help identify different types of classification errors.
+
+**Evaluation note:** Reported scores should be calculated from genuine model predictions using the appropriate held-out evaluation data. Perfect-looking metrics should be interpreted cautiously, especially when the dataset's provenance is uncertain.
+
+---
+
+## 🔐 Responsible Use
+
+This project is an educational machine learning prototype intended for experimentation and demonstration.
+
+- Dataset provenance has not been independently verified.
+- The data may be synthetic or generated using predefined rules.
+- Model performance on this dataset may not generalize to real student populations.
+- Predictions can reflect biases and patterns present in the training data.
+- SHAP values describe model behavior rather than causal relationships.
+- Model-estimated probabilities are not necessarily calibrated estimates of real-world placement likelihood.
+- Predictions should not be used as the sole basis for hiring, admissions, or other consequential decisions.
+
+The application should be treated as a learning and demonstration tool, not a validated employment decision system.
+
+---
+
+## 🚀 Future Enhancements
+
+Potential future improvements include:
+
+- Verify the original dataset source and licensing.
+- Validate models on independently sourced real-world data.
+- Implement cross-validation and probability calibration.
+- Conduct subgroup performance and fairness analysis.
+- Add model versioning and experiment tracking.
+- Improve automated testing and data validation.
+- Introduce data drift and performance monitoring.
+- Develop a reproducible model retraining workflow.
+
+---
+
+## 🎓 Academic Project
+
+| Property | Details |
+|---|---|
+| Project title | Student Placement Predictor Using Machine Learning |
+| Domain | Machine Learning and Predictive Analytics |
+| Application type | Interactive web application |
+| Classification task | Binary classification |
+| Explainability | SHAP |
+| Deployment | Streamlit Community Cloud |
+
+The project demonstrates the integration of data preprocessing, supervised machine learning, model evaluation, interactive visualization, and explainable AI.
+
+---
+
+## 👨‍💻 Author
+
+**Kaveesh Kadirvel**
+
+- **GitHub:** [@kaveesh-kadirvel](https://github.com/kaveesh-kadirvel)
+- **Repository:** [Student Placement Prediction System](https://github.com/kaveesh-kadirvel/Student-Placement-Prediction-System)
+- **Live Application:** [Launch Student Placement Predictor](https://sies-placement-prediction-system.streamlit.app/)
+
+---
+
+<p align="center">
+  <strong>Built with Python, Machine Learning, and Explainable AI.</strong>
+  <br>
+  <sub>Academic project · Predictive analytics · Responsible machine learning</sub>
+</p>
