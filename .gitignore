@@ -1,0 +1,17 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ipynb_checkpoints/
+.venv/
+venv/
+.env
+.env.*
+.streamlit/secrets.toml
+.DS_Store
+.idea/
+.vscode/
+*.log
+coverage.xml
+htmlcov/
+*.pkl
+!placement_model.pkl

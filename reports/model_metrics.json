@@ -1,0 +1,150 @@
+{
+  "interpretation": {
+    "data_provenance": "Unverified; repository notebook and audit indicate synthetic or rule-generated labels.",
+    "result_scope": "Development-pipeline results on the current repository dataset only; not evidence of real-world placement validity.",
+    "positive_class": "Placed",
+    "selection_metric": "Validation F1, with validation ROC-AUC and accuracy as tie-breakers.",
+    "test_set_policy": "The original test.csv is evaluated only after selection/refitting, but rerunning this script recomputes test metrics; do not use these results for tuning or selection.",
+    "preprocessing_policy": "Each preprocessing pipeline is fitted only on the training partition of train.csv."
+  },
+  "dataset": {
+    "train_rows": 45000,
+    "test_rows": 5000,
+    "train_target_distribution": {
+      "Not Placed": 28688,
+      "Placed": 16312
+    },
+    "test_target_distribution": {
+      "Not Placed": 3188,
+      "Placed": 1812
+    },
+    "split_integrity": {
+      "shared_student_ids": [],
+      "overlap_count": 0,
+      "train_unique_ids": 45000,
+      "test_unique_ids": 5000
+    }
+  },
+  "comparison": [
+    {
+      "model": "Logistic Regression",
+      "validation_metrics": {
+        "accuracy": 0.8603333333333333,
+        "precision": 0.7686947199142321,
+        "recall": 0.8792152053954629,
+        "f1": 0.8202488202488203,
+        "roc_auc": 0.9361591455545323,
+        "confusion_matrix": [
+          [
+            4875,
+            863
+          ],
+          [
+            394,
+            2868
+          ]
+        ]
+      }
+    },
+    {
+      "model": "Decision Tree",
+      "validation_metrics": {
+        "accuracy": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "roc_auc": 1.0,
+        "confusion_matrix": [
+          [
+            5738,
+            0
+          ],
+          [
+            0,
+            3262
+          ]
+        ]
+      }
+    },
+    {
+      "model": "Random Forest",
+      "validation_metrics": {
+        "accuracy": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "roc_auc": 1.0,
+        "confusion_matrix": [
+          [
+            5738,
+            0
+          ],
+          [
+            0,
+            3262
+          ]
+        ]
+      }
+    },
+    {
+      "model": "SVM",
+      "validation_metrics": {
+        "accuracy": 0.9843333333333333,
+        "precision": 0.9654041157172681,
+        "recall": 0.9923359901900675,
+        "f1": 0.9786848072562359,
+        "roc_auc": 0.9986595061823903,
+        "confusion_matrix": [
+          [
+            5622,
+            116
+          ],
+          [
+            25,
+            3237
+          ]
+        ]
+      }
+    },
+    {
+      "model": "XGBoost",
+      "validation_metrics": {
+        "accuracy": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "roc_auc": 1.0,
+        "confusion_matrix": [
+          [
+            5738,
+            0
+          ],
+          [
+            0,
+            3262
+          ]
+        ]
+      }
+    }
+  ],
+  "selected_model": {
+    "name": "Decision Tree",
+    "test_metrics": {
+      "accuracy": 1.0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "roc_auc": 1.0,
+      "confusion_matrix": [
+        [
+          3188,
+          0
+        ],
+        [
+          0,
+          1812
+        ]
+      ]
+    }
+  }
+}
